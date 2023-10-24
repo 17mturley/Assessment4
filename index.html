@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="container">
+      <div class ="button-container">
+        <button id="complimentButton">Get a compliment</button>
+        <button id="fortuneButton">Get Fortune</button>
+        <button id="getCats">Rate These Cats</button>
+      </div>
+      <h1>Add A Cat</h1>
+      <form action="submit_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="nickname">Nickname:</label>
+        <input type="text" id="nickname" nickname="nickname" required>
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" rating="rating" require>
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="imageURL" imageURL="imageURL" require>
+        <input type="submit" value="Submit">
+      </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
