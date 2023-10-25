@@ -37,5 +37,24 @@ createCat: (req, res) => {
     push(newCat);
     res.status(200).send(cats);
     globalId++;
+},
+updateCatRating: (req, res) => {
+    const {id } = req.params;
+    const { type } = req.body;
+
+    for (let i = 0; i < cats.length; i++) {
+        if (cats[i].id === +id) {
+            if (type === "plus" && cats[i].rating < 5) {
+                cats[i].rating++;
+                res.status(200).send(cats);
+                return;
+            }
+            if (type === "minus" && cats[i].rating > 1) {
+                cats[i].rating--;
+                res.status(200).send(cats);
+                return;
+            }
+        }
+    }
 }
 }
