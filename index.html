@@ -16,8 +16,35 @@
         <input type="text" id="name" name="name" required>
         <label for="nickname">Nickname:</label>
         <input type="text" id="nickname" nickname="nickname" required>
-        <label for="rating">Rating:</label>
-        <input type="text" id="rating" rating="rating" require>
+        <section id="ratings-container">
+          <p>Rate the cat:</p>
+          <div id="radio-container">
+            <label for="ten">
+              <input
+                type="radio"
+                name="ratings"
+                value="10/10"
+                id="ten"/>
+              10/10
+            </label>
+            <label for="twenty">
+              <input
+                type="radio"
+                name="ratings"
+                value="20/10"
+                id="twenty"/>
+                20/10
+            </label>
+            <label for="one-hundred">
+              <input
+                type="radio"
+                name="ratings"
+                value="100/10"
+                id="one-hundred"/>
+                100/10
+            </label>
+          </div>
+        </section>
         <label for="imageURL">Image URL:</label>
         <input type="text" id="imageURL" imageURL="imageURL" require>
         <input type="submit" value="Submit">
