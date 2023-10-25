@@ -12,7 +12,8 @@ const {
     getFortune,
     getCats,
     deleteCat,
-    createCat
+    createCat,
+    updateCatRating
 } = require('./controller');
 
 app.get("/api/compliment", getCompliment);
@@ -20,5 +21,6 @@ app.get("/api/fortune", getFortune);
 app.get(`/api/cats`, getCats);
 app.delete(`/api/cats/:id`, deleteCat);
 app.post(`/api/cats`, createCat);
+app.put(`/api/cats/:id`, updateCatRating);
 
 app.listen(4000, () => console.log("Server running on 4000"));
