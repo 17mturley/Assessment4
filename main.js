@@ -1,4 +1,24 @@
 const complimentBtn = document.getElementById("complimentButton")
+const catContainer = document.getElementById("cats-container")
+const fortuneBtn = document.getElementById("fortuneButton")
+const getCatsBtn = document.getElementById("getCats")
+
+const baseURL = `http://localhost:4000/api/cats`;
+
+const catsCallback = ({ data: cats }) => displayCats(cats);
+const errCallback = err => console.log(err.response.data);
+
+const getAllCats = () =>
+    axios.get(baseURL).then(catsCallback).catch(errCallback);
+const createCat = (body) =>
+    axios.get(baseURL, body).then(catsCallback).catch(errCallback);
+const deleteCat = (id) => 
+    axios.get(`${baseURL}/${id}`).then(catsCallback).catch(errCallback)
+const updateCatRating = (id, type) =>
+    axios
+        .put(`${baseURL}/${id}`, { type })
+        .then(catsCallback)
+        .catch(errCallback);
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -10,7 +30,6 @@ const getCompliment = () => {
 
 complimentBtn.addEventListener('click', getCompliment)
 
-const fortuneBtn = document.getElementById("fortuneButton")
 
 const getFortune = () => {
     axios.get("http://localhost:4000/api/fortune/")
@@ -22,8 +41,13 @@ const getFortune = () => {
 
 fortuneBtn.addEventListener('click', getFortune)
 
-const getCatsBtn = document.getElementById("getCats")
 
-//get cats function goes here
+function displayCats(arr) {
+    catContainer.innerHTML = ``;
+    for (let i = 0; i < arr.length; i++) {
+        createCat(arr[i]);
+    }
+}
 
-const 
+getCatsBtn.addEventListener('click', displayCats)
+
